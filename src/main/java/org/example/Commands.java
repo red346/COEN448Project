@@ -39,6 +39,17 @@ public class Commands {
             case "U":
             case "u":
                 setPenUp(true);
+                setPenDown(false);
+                break;
+            case "D":
+            case "d":
+                setPenDown(true);
+                setPenUp(false);
+                break;
+            case "R":
+            case "r":
+                setTurnRight(true);
+                setTurnLeft(false);
                 break;
 
         }
