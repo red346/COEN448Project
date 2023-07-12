@@ -387,6 +387,6 @@ public class Commands {
         String userCommand = myObj.nextLine();  // Read user input
         System.out.println("userCommand is: " + userCommand);  // Output user input
 
-        this.command = userCommand;
+        this.command = userCommand.toLowerCase();
     }
 }
