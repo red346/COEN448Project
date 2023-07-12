@@ -1,21 +1,24 @@
 package org.example;
 import java.util.Scanner;
 
-public class Main {
+public class Main{
+
     public static void main(String[] args) {
-        int[][] robot = new int[10][10];
+        //int[][] robot = new int[Integer.parseInt(args[1])][Integer.parseInt(args[1])];
 
-        Scanner scanner = new Scanner(System.in);
-
-        Commands Command = new Commands();
-
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("i:initialize, u:up, d:down, r:right, l:left, m s:move #space, p:print, c:current pos, q:quit  ");
         System.out.println("Enter Command");
-        String command = scanner.nextLine();
 
 
+        String userCommand = myObj.nextLine();  // Read user input
+        System.out.println("userCommand is: " + userCommand);  // Output user input
 
 
-        //System.out.println("Hello world!");
+        Commands command = new Commands(userCommand.toLowerCase());
+
+
+        command.identifyCommand();
     }
 }
 
