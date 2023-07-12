@@ -23,7 +23,7 @@ public class Commands {
     public boolean turnWest = false;
     public boolean turnNorth = false;
     public boolean turnSouth = false;
-    private boolean Quit = false;
+    private boolean Quit;
     public int posX; //
     public int posY; // position of robot [x,y]
     public String command;
@@ -36,6 +36,7 @@ public class Commands {
 
     public Commands(String command){
         this.command = command;
+        Quit = false;
 //        this.sizeOfArray = arraysiz;
 //        this.bipbop = new Robot(arraysiz);
     }
@@ -152,6 +153,10 @@ public class Commands {
                     break;
 
                 case "c":
+                    int[] RobotPosition=new int[2];
+                    RobotPosition= bipbop.RobotPosition();
+                    System.out.println("Robot's Position: "+RobotPosition[0]+","+RobotPosition[1]);
+
                     String Penstatus = "";
                     if (isPenDown() == false && isPenUp() == true) Penstatus = "Pen Up";
                     else if (isPenDown() == true && isPenUp() == false) Penstatus = "Pen Down";
@@ -210,13 +215,16 @@ public class Commands {
                     Quit = true;
                     break;
 
+
                 default:
                     System.out.println("input invalid");
                     break;
-
-            } if (!Quit) {
+            }
+            if(!Quit)
+            {
                 GetNewCommand();
             }
+
         }
     }
 
@@ -276,18 +284,18 @@ public class Commands {
         this.turnWest = turnWest;
     }
 
-     public void InitializeArray(int sizeOfArray) {
+    public void InitializeArray(int sizeOfArray) {
 
-         for(int row=0; row<sizeOfArray; row++){
-             x.add(new ArrayList<String>());
-             for(int col=0; col<sizeOfArray; col++){
-                 x.get(row).add(col,"0");
-             }
-         }
+        for(int row=0; row<sizeOfArray; row++){
+            x.add(new ArrayList<String>());
+            for(int col=0; col<sizeOfArray; col++){
+                x.get(row).add(col,"0");
+            }
+        }
 
-         bipbop = new Robot(sizeOfArray);
+        bipbop = new Robot(sizeOfArray);
 
-     }
+    }
 
     public void PrintArray(){
 
@@ -307,10 +315,10 @@ public class Commands {
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
-            for(int col=robotposition[1]; col<stepsize; col++){
-                x.get(robotposition[0]).set(col, "-");
-                bipbop.RobotUpdatePosition(robotposition[0],col);
-            }
+        for(int col=robotposition[1]; col<stepsize; col++){
+            x.get(robotposition[0]).set(col, "-");
+            bipbop.RobotUpdatePosition(robotposition[0],col);
+        }
     }
 
     public void MovetoEastUP(int stepsize){
@@ -383,6 +391,6 @@ public class Commands {
         String userCommand = myObj.nextLine();  // Read user input
         System.out.println("userCommand is: " + userCommand);  // Output user input
 
-        this.command = userCommand;
+        this.command = userCommand.toLowerCase();
     }
 }
