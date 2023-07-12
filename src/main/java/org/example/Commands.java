@@ -21,7 +21,8 @@ public class Commands {
     public boolean penUp = true;
     public boolean turnRight = false;
     public boolean turnLeft = false;
-    private boolean Quit = false;
+   // private boolean Quit = false;
+    private boolean Quit;
     public int posX; //
     public int posY; // position of robot [x,y]
     public String command;
@@ -33,6 +34,7 @@ public class Commands {
 
     public Commands(String command){
         this.command = command;
+        Quit=false;
 //        this.sizeOfArray = arraysiz;
 //        this.bipbop = new Robot(arraysiz);
     }
@@ -96,6 +98,10 @@ public class Commands {
                     break;
 
                 case "c":
+                    int[] RobotPosition= new int[2];
+                    RobotPosition= bipbop.RobotPosition();
+                    System.out.println("The robot's position is: "+RobotPosition[0]+","+RobotPosition[1]);
+
                     String Penstatus = "";
                     if (isPenDown() == false && isPenUp() == true) Penstatus = "Pen Up";
                     else if (isPenDown() == true && isPenUp() == false) Penstatus = "Pen Down";
@@ -107,6 +113,8 @@ public class Commands {
                     //
                     //
                     System.out.println("Pen Direction: " + PenDirection);
+
+
 
                     break;
 
