@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cafbe68-1212-46ce-a24b-853105ca8f88" name="Changes" comment="Created a java file called Commands has getters and setters, also started writing the different commands the user can put.">
+    <list default="true" id="7cafbe68-1212-46ce-a24b-853105ca8f88" name="Changes" comment="Added exception in main.java file to make sure the first command inputted by the user is i or I, fixed the commands where the user can put both lower and uppercase letters.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +90,7 @@
       <workItem from="1688672858061" duration="64000" />
       <workItem from="1688673008721" duration="145000" />
       <workItem from="1689181566331" duration="671000" />
-      <workItem from="1689194184407" duration="5025000" />
+      <workItem from="1689194184407" duration="5575000" />
     </task>
     <task id="LOCAL-00002" summary="Created a java file called Commands has getters and setters, also started writing the different commands the user can put.">
       <created>1689037931234</created>
@@ -114,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689197656455</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added exception in main.java file to make sure the first command inputted by the user is i or I, fixed the commands where the user can put both lower and uppercase letters.">
+      <created>1689199718843</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689199718843</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +151,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created a java file called Commands has getters and setters, also started writing the different commands the user can put." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created a java file called Commands has getters and setters, also started writing the different commands the user can put." />
+    <MESSAGE value="Added exception in main.java file to make sure the first command inputted by the user is i or I, fixed the commands where the user can put both lower and uppercase letters." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added exception in main.java file to make sure the first command inputted by the user is i or I, fixed the commands where the user can put both lower and uppercase letters." />
   </component>
 </project>

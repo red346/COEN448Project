@@ -220,7 +220,11 @@ public class Commands {
                     System.out.println("input invalid");
                     break;
             }
-            GetNewCommand();
+            if(!Quit)
+            {
+                GetNewCommand();
+            }
+
         }
     }
 
