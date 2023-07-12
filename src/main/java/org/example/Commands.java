@@ -130,10 +130,13 @@ public class Commands {
                             MoveForward(Integer.parseInt(stepsize));
                         }
                         else if (isTurnEast() == false && isTurnWest() == false && isTurnNorth() == true && isTurnSouth() == true) {
-                            //MoveForward(Integer.parseInt(stepsize));
+                            MoveSouth(Integer.parseInt(stepsize));
                         }
                     }
                     //else if pen up the robot will automatically fly to the designated position without leaving any trail
+                    else if (isPenUp()){
+
+                    }
                     break;
 
                 case"q":
@@ -236,6 +239,15 @@ public class Commands {
                 x.get(robotposition[0]).set(col, "-");
                 bipbop.RobotUpdatePosition(robotposition[0],col);
             }
+    }
+
+    public void MovetoEastUP(int stepsize){
+
+        //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
+        int[] robotposition = bipbop.RobotPosition();
+        for(int col=robotposition[1]; col<stepsize; col++){
+            bipbop.RobotUpdatePosition(robotposition[0],col);
+        }
     }
 
     public void MovetoWest(int stepsize){
