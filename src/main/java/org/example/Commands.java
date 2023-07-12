@@ -135,7 +135,18 @@ public class Commands {
                     }
                     //else if pen up the robot will automatically fly to the designated position without leaving any trail
                     else if (isPenUp()){
-
+                        if (isTurnEast() == true && isTurnWest() == false && isTurnNorth() == false && isTurnSouth() == false){
+                            MovetoEastUP(Integer.parseInt(stepsize));
+                        }
+                        else if (isTurnEast() == false && isTurnWest() == true && isTurnNorth() == false && isTurnSouth() == false) {
+                            MovetoWestUP(Integer.parseInt(stepsize));
+                        }
+                        else if (isTurnEast() == false && isTurnWest() == false && isTurnNorth() == true && isTurnSouth() == false) {
+                            MoveForwardUP(Integer.parseInt(stepsize));
+                        }
+                        else if (isTurnEast() == false && isTurnWest() == false && isTurnNorth() == true && isTurnSouth() == true) {
+                            MoveSouthUP(Integer.parseInt(stepsize));
+                        }
                     }
                     break;
 
@@ -261,6 +272,15 @@ public class Commands {
         }
     }
 
+    public void MovetoWestUP(int stepsize){
+
+        //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
+        //another case when stepsize is 1 the robot stays in place, because of the for loop format
+        int[] robotposition = bipbop.RobotPosition();
+        for(int col=robotposition[1]; col>=robotposition[1]-stepsize; col--){
+            bipbop.RobotUpdatePosition(robotposition[0],col);
+        }
+    }
     public void MoveForward(int stepsize){ //NORTH
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
@@ -271,6 +291,14 @@ public class Commands {
         }
     }
 
+    public void MoveForwardUP(int stepsize){ //NORTH
+
+        //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
+        int[] robotposition = bipbop.RobotPosition();
+        for(int row=robotposition[0]; row>=robotposition[0]-stepsize; row--){
+            bipbop.RobotUpdatePosition(row,robotposition[1]);
+        }
+    }
     public void MoveSouth(int stepsize){
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
@@ -280,6 +308,13 @@ public class Commands {
         }
     }
 
+    public void MoveSouthUP(int stepsize){
+        //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
+        int[] robotposition = bipbop.RobotPosition();
+        for(int row=robotposition[0]; row>=robotposition[0]-stepsize; row++){
+            bipbop.RobotUpdatePosition(row,robotposition[1]);
+        }
+    }
     private void GetNewCommand(){
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter Command");
