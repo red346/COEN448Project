@@ -62,7 +62,7 @@ public class Commands {
                 case "r":
                     if(isTurnLeft()){
                         setTurnLeft(false);
-                        setTurnRight(false);
+                        setTurnRight(true);
                     }
                     else
                         setTurnRight(true);
@@ -71,7 +71,7 @@ public class Commands {
 
                 case "l":
                     if(isTurnRight()){
-                        setTurnLeft(false);
+                        setTurnLeft(true);
                         setTurnRight(false);
                     }
                     else
@@ -118,6 +118,7 @@ public class Commands {
                     if(isPenDown()){
                         if (isTurnRight() == true && isTurnLeft() == false){
                             MovetoRight(Integer.parseInt(stepsize));
+                            //TODO: add where robot has been; update position as it goes
                         }
                         else if (isTurnRight() == false && isTurnLeft() == true) {
                             MovetoLeft(Integer.parseInt(stepsize));
@@ -223,6 +224,7 @@ public class Commands {
      }
 
     public void PrintArray(){
+
         int[] robotposition = bipbop.RobotPosition();
         x.get(robotposition[0]).set(robotposition[1], "*");
 
