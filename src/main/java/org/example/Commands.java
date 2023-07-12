@@ -27,6 +27,7 @@ public class Commands {
     public int posX; //
     public int posY; // position of robot [x,y]
     public String command;
+    public String PenDirection = "North";
 
     //Dummy initialization
     //public String[][] arrayString = new String[1][1];
@@ -63,6 +64,7 @@ public class Commands {
                     setPenUp(false);
                     break;
                 case "r":
+
                     if(isTurnWest()){
                         setTurnWest(false);
                         setTurnEast(true);
@@ -70,15 +72,67 @@ public class Commands {
                     else
                         setTurnEast(true);
 
-                    break;
+                    switch(PenDirection){
+                        case "North":
+                            PenDirection = "East";
+                            break;
 
+                        case "South":
+                            PenDirection = "West";
+                            break;
+
+                        case "East":
+                            PenDirection = "South";
+                            break;
+
+                        case "West":
+                            PenDirection = "North";
+                            break;
+
+                        default:
+                            System.out.println("invalid");
+                            break;
+                    }
+                    /*//check pos then
+                    if(isTurnWest()){
+                        setTurnWest(false);
+                        setTurnEast(true);
+                    }
+                    else
+                        setTurnEast(true);
+
+                    */
+                    break;
                 case "l":
+
                     if(isTurnEast()){
                         setTurnWest(true);
                         setTurnEast(false);
                     }
                     else
                         setTurnWest(true);
+
+                    switch(PenDirection){
+                        case "North":
+                            PenDirection = "West";
+                            break;
+
+                        case "South":
+                            PenDirection = "East";
+                            break;
+
+                        case "East":
+                            PenDirection = "North";
+                            break;
+
+                        case "West":
+                            PenDirection = "South";
+                            break;
+
+                        default:
+                            System.out.println("invalid");
+                            break;
+                    }
 
                     break;
 
@@ -108,9 +162,11 @@ public class Commands {
                     else if (isPenDown() == true && isPenUp() == false) Penstatus = "Pen Down";
                     System.out.println("Pen status: " + Penstatus);
 
-                    String PenDirection = "";
-                    if (isTurnEast() == false && isTurnWest() == true) PenDirection = "West";
-                    else if (isTurnEast() == true && isTurnWest() == false) PenDirection = "East";
+
+                    if (isTurnEast() == false && isTurnWest() == true && isTurnNorth() == false && isTurnSouth() == false) PenDirection = "West";
+                    else if (isTurnEast() == true && isTurnWest() == false && isTurnNorth() == false && isTurnSouth() == false) PenDirection = "East";
+                    else if (isTurnEast() == false && isTurnWest() == false && isTurnNorth() == true && isTurnSouth() == false) PenDirection = "North";
+                    else if (isTurnEast() == false && isTurnWest() == false && isTurnNorth() == false && isTurnSouth() == true) PenDirection = "South";
                     //
                     //
                     System.out.println("Pen Direction: " + PenDirection);
@@ -134,18 +190,34 @@ public class Commands {
                         else if (isTurnEast() == false && isTurnWest() == false && isTurnNorth() == true && isTurnSouth() == false) {
                             MoveForward(Integer.parseInt(stepsize));
                         }
-                        else if (isTurnEast() == false && isTurnWest() == false && isTurnNorth() == true && isTurnSouth() == true) {
+                        else if (isTurnEast() == false && isTurnWest() == false && isTurnNorth() == false && isTurnSouth() == true) {
                             MoveSouth(Integer.parseInt(stepsize));
                         }
                     }
                     //else if pen up the robot will automatically fly to the designated position without leaving any trail
                     else if (isPenUp()){
-
+                        if (isTurnEast() == true && isTurnWest() == false && isTurnNorth() == false && isTurnSouth() == false){
+                            MovetoEastUP(Integer.parseInt(stepsize));
+                        }
+                        else if (isTurnEast() == false && isTurnWest() == true && isTurnNorth() == false && isTurnSouth() == false) {
+                            MovetoWestUP(Integer.parseInt(stepsize));
+                        }
+                        else if (isTurnEast() == false && isTurnWest() == false && isTurnNorth() == true && isTurnSouth() == false) {
+                            MoveForwardUP(Integer.parseInt(stepsize));
+                        }
+                        else if (isTurnEast() == false && isTurnWest() == false && isTurnNorth() == true && isTurnSouth() == true) {
+                            MoveSouthUP(Integer.parseInt(stepsize));
+                        }
                     }
                     break;
 
                 case"q":
                     Quit = true;
+                    break;
+
+
+                default:
+                    System.out.println("input invalid");
                     break;
             }
             GetNewCommand();
@@ -199,7 +271,6 @@ public class Commands {
     public void setTurnEast(boolean turnEast) {
         this.turnEast = turnEast;
     }
-
     public boolean isTurnWest() {
         return turnWest;
     }
@@ -266,6 +337,15 @@ public class Commands {
         }
     }
 
+    public void MovetoWestUP(int stepsize){
+
+        //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
+        //another case when stepsize is 1 the robot stays in place, because of the for loop format
+        int[] robotposition = bipbop.RobotPosition();
+        for(int col=robotposition[1]; col>=robotposition[1]-stepsize; col--){
+            bipbop.RobotUpdatePosition(robotposition[0],col);
+        }
+    }
     public void MoveForward(int stepsize){ //NORTH
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
@@ -276,6 +356,14 @@ public class Commands {
         }
     }
 
+    public void MoveForwardUP(int stepsize){ //NORTH
+
+        //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
+        int[] robotposition = bipbop.RobotPosition();
+        for(int row=robotposition[0]; row>=robotposition[0]-stepsize; row--){
+            bipbop.RobotUpdatePosition(row,robotposition[1]);
+        }
+    }
     public void MoveSouth(int stepsize){
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
@@ -285,6 +373,13 @@ public class Commands {
         }
     }
 
+    public void MoveSouthUP(int stepsize){
+        //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
+        int[] robotposition = bipbop.RobotPosition();
+        for(int row=robotposition[0]; row>=robotposition[0]-stepsize; row++){
+            bipbop.RobotUpdatePosition(row,robotposition[1]);
+        }
+    }
     private void GetNewCommand(){
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter Command");
