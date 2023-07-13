@@ -315,18 +315,31 @@ public class Commands {
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
-        for(int col=robotposition[1]; col<stepsize; col++){
+        int colLimit = robotposition[1] + stepsize;
+        int maxColIndex = sizeOfArray - 1;
+        for (int col = robotposition[1]; col < colLimit; col++) {
+            if (col > maxColIndex) {
+                System.out.println("Warning: Robot has gone out of bounds!");
+                break;
+            }
             x.get(robotposition[0]).set(col, "-");
-            bipbop.RobotUpdatePosition(robotposition[0],col);
+            bipbop.RobotUpdatePosition(robotposition[0], col);
         }
     }
+
 
     public void MovetoEastUP(int stepsize){
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
-        for(int col=robotposition[1]; col<stepsize; col++){
-            bipbop.RobotUpdatePosition(robotposition[0],col);
+        int colLimit = robotposition[1] + stepsize;
+        int maxColIndex = sizeOfArray - 1;
+        for (int col = robotposition[1]; col < colLimit; col++) {
+            if (col > maxColIndex) {
+                System.out.println("Robot is out of bounds!");
+                break;
+            }
+            bipbop.RobotUpdatePosition(robotposition[0], col);
         }
     }
 
@@ -335,37 +348,49 @@ public class Commands {
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         //another case when stepsize is 1 the robot stays in place, because of the for loop format
         int[] robotposition = bipbop.RobotPosition();
-        for(int col=robotposition[1]; col>=robotposition[1]-stepsize; col--){
+        int colLimit = robotposition[1] - stepsize;
+        for (int col = robotposition[1]; col > colLimit; col--) {
+            if (col < 0) {
+                System.out.println("Robot is out of bounds!");
+                break;
+            }
             x.get(robotposition[0]).set(col, "-");
-            bipbop.RobotUpdatePosition(robotposition[0],col);
+            bipbop.RobotUpdatePosition(robotposition[0], col);
         }
     }
 
-    public void MovetoWestUP(int stepsize){
-
-        //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
-        //another case when stepsize is 1 the robot stays in place, because of the for loop format
+    public void MovetoWestUP(int stepsize) {
         int[] robotposition = bipbop.RobotPosition();
-        for(int col=robotposition[1]; col>=robotposition[1]-stepsize; col--){
-            bipbop.RobotUpdatePosition(robotposition[0],col);
+        int colLimit = robotposition[1] - stepsize;
+        for (int col = robotposition[1]; col > colLimit; col--) {
+            if (col < 0) {
+                System.out.println("Robot is out of bounds!");
+                break;
+            }
+            bipbop.RobotUpdatePosition(robotposition[0], col);
         }
     }
-    public void MoveForward(int stepsize){ //NORTH
-
-        //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
+    public void MoveForward(int stepsize) {
         int[] robotposition = bipbop.RobotPosition();
-        for(int row=robotposition[0]; row>=robotposition[0]-stepsize; row--){
-            x.get(row).set(robotposition[1],"|");
-            bipbop.RobotUpdatePosition(row,robotposition[1]);
+        int rowLimit = robotposition[0] - stepsize;
+        for (int row = robotposition[0]; row > rowLimit; row--) {
+            if (row < 0) {
+                System.out.println("Robot is out of bounds!");
+                break;
+            }
+            x.get(row).set(robotposition[1], "|");
+            bipbop.RobotUpdatePosition(row, robotposition[1]);
         }
     }
-
-    public void MoveForwardUP(int stepsize){ //NORTH
-
-        //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
+    public void MoveForwardUP(int stepsize) {
         int[] robotposition = bipbop.RobotPosition();
-        for(int row=robotposition[0]; row>=robotposition[0]-stepsize; row--){
-            bipbop.RobotUpdatePosition(row,robotposition[1]);
+        int rowLimit = robotposition[0] - stepsize;
+        for (int row = robotposition[0]; row > rowLimit; row--) {
+            if (row < 0) {
+                System.out.println("Robot is out of bounds!");
+                break;
+            }
+            bipbop.RobotUpdatePosition(row, robotposition[1]);
         }
     }
     public void MoveSouth(int stepsize){
