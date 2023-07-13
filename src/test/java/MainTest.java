@@ -1,54 +1,65 @@
+import org.example.Commands;
 import org.example.Main;
-import org.junit.Test;
-//import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
 
-import static org.junit.Assert.assertTrue;
-//import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MainTest {
+    private final PrintStream standardOut = System.out;
+    private final InputStream standardIn = System.in;
+    private ByteArrayInputStream testIn;
+    private ByteArrayInputStream testIn2;
+    private ByteArrayOutputStream testOut;
+
+    @BeforeEach
+    public void setUp() {
+        testOut = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(testOut));
+    }
+
+    @AfterEach
+    public void tearDown() {
+        System.setOut(standardOut);
+        System.setIn(standardIn);
+    }
+
     @Test
     public void testFirstCommandCorrect() {
-        String userInput = "i\nu\n";
-        InputStream sysInBackup = System.in; // Backup System.in to restore it later
-        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes(StandardCharsets.UTF_8));
-        System.setIn(in);
-
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
+        String userInput = "i\n"; // Add a newline character to simulate pressing Enter after input
+        testIn = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(testIn);
 
         Main.main(new String[]{});
 
-        String consoleOutput = out.toString().trim();
-        assertTrue(consoleOutput.contains("user command lowercase is: i"));
+        String consoleOutput = testOut.toString().trim();
+        assertTrue(consoleOutput.contains("user command lowercase is: i"),
+                "Expected output to contain 'user command lowercase is: i'");
 
-        // Restore System.in
-        System.setIn(sysInBackup);
+        String userInput2="7";
+        testIn2=new ByteArrayInputStream(userInput2.getBytes());
+        System.setIn(testIn2);
     }
 
     @Test
     public void testFirstCommandIncorrect() {
         String userInput = "u\ni\nu\n";
-        InputStream sysInBackup = System.in;
-        // Backup System.in to restore it later
-        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes(StandardCharsets.UTF_8));
-        System.setIn(in);
-
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
+        testIn = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(testIn);
 
         Main.main(new String[]{});
 
-        String consoleOutput = out.toString().trim();
-        assertTrue("Expected output to contain 'First command should be i, try again.'", consoleOutput.contains("First command should be i, try again."));
-        assertTrue("Expected output to contain 'user command lowercase is: i'", consoleOutput.contains("user command lowercase is: i"));
-
-        // Restore System.in
-        System.setIn(sysInBackup);
+        String consoleOutput = testOut.toString().trim();
+        assertTrue(consoleOutput.contains("First command should be i, try again."),
+                "Expected output to contain 'First command should be i, try again.'");
+        assertTrue(consoleOutput.contains("user command lowercase is: i"),
+                "Expected output to contain 'user command lowercase is: i'");
     }
 }

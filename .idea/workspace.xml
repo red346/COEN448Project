@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cafbe68-1212-46ce-a24b-853105ca8f88" name="Changes" comment="Added exception in main.java file to make sure the first command inputted by the user is i or I, fixed the commands where the user can put both lower and uppercase letters.">
+    <list default="true" id="7cafbe68-1212-46ce-a24b-853105ca8f88" name="Changes" comment="Changes in maintest, tests still not working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Robot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/commandsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/commandsTest.java" afterDir="false" />
     </list>
@@ -61,7 +63,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="JUnit.MainTest.testFirstCommandIncorrect">
+  <component name="RunManager" selected="JUnit.commandsTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="COEN448Project" />
@@ -84,19 +86,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.testFirstCommandIncorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="commandsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COEN448Project" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="testFirstCommandIncorrect" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="commandsTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MainTest.testFirstCommandIncorrect" />
+        <item itemvalue="JUnit.commandsTest" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="Application.Main" />
       </list>
@@ -117,7 +118,7 @@
       <workItem from="1689200664811" duration="37000" />
       <workItem from="1689200720493" duration="209000" />
       <workItem from="1689200947868" duration="37000" />
-      <workItem from="1689201004331" duration="4537000" />
+      <workItem from="1689201004331" duration="11483000" />
     </task>
     <task id="LOCAL-00002" summary="Created a java file called Commands has getters and setters, also started writing the different commands the user can put.">
       <created>1689037931234</created>
@@ -154,7 +155,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689200126576</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="CHanges to main">
+      <created>1689277487912</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689277487912</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Changes in maintest, tests still not working">
+      <created>1689281776896</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1689281776896</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +201,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created a java file called Commands has getters and setters, also started writing the different commands the user can put." />
     <MESSAGE value="Added exception in main.java file to make sure the first command inputted by the user is i or I, fixed the commands where the user can put both lower and uppercase letters." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added exception in main.java file to make sure the first command inputted by the user is i or I, fixed the commands where the user can put both lower and uppercase letters." />
+    <MESSAGE value="CHanges to main" />
+    <MESSAGE value="Changes in maintest, tests still not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes in maintest, tests still not working" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Commands.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
