@@ -1,3 +1,4 @@
+import org.example.Commands;
 import org.example.Main;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +16,7 @@ public class MainTest {
     private final PrintStream standardOut = System.out;
     private final InputStream standardIn = System.in;
     private ByteArrayInputStream testIn;
+    private ByteArrayInputStream testIn2;
     private ByteArrayOutputStream testOut;
 
     @BeforeEach
@@ -40,6 +42,10 @@ public class MainTest {
         String consoleOutput = testOut.toString().trim();
         assertTrue(consoleOutput.contains("user command lowercase is: i"),
                 "Expected output to contain 'user command lowercase is: i'");
+
+        String userInput2="7";
+        testIn2=new ByteArrayInputStream(userInput2.getBytes());
+        System.setIn(testIn2);
     }
 
     @Test
