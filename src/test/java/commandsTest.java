@@ -1,9 +1,9 @@
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 
 public class commandsTest {
-    @Test
-    public void testC()
-    {
+  //  @Test
+  //  public void testC()
+ //   {
 
-    }
+   // }
 }

@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7cafbe68-1212-46ce-a24b-853105ca8f88" name="Changes" comment="Added exception in main.java file to make sure the first command inputted by the user is i or I, fixed the commands where the user can put both lower and uppercase letters.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/commandsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/commandsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +61,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="JUnit.MainTest">
+  <component name="RunManager" selected="JUnit.MainTest.testFirstCommandIncorrect">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="COEN448Project" />
@@ -84,8 +84,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainTest.testFirstCommandIncorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COEN448Project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
+      <option name="METHOD_NAME" value="testFirstCommandIncorrect" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MainTest.testFirstCommandIncorrect" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="Application.Main" />
       </list>
@@ -176,16 +187,5 @@
     <MESSAGE value="Created a java file called Commands has getters and setters, also started writing the different commands the user can put." />
     <MESSAGE value="Added exception in main.java file to make sure the first command inputted by the user is i or I, fixed the commands where the user can put both lower and uppercase letters." />
     <option name="LAST_COMMIT_MESSAGE" value="Added exception in main.java file to make sure the first command inputted by the user is i or I, fixed the commands where the user can put both lower and uppercase letters." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Commands.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

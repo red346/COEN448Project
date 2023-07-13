@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,6 +25,7 @@ public class Commands {
     public boolean turnNorth = false;
     public boolean turnSouth = false;
     private boolean Quit;
+    private final Scanner scanner;
     public int posX; //
     public int posY; // position of robot [x,y]
     public String command;
@@ -35,12 +37,19 @@ public class Commands {
     Robot bipbop ;
 
     public Commands(String command){
+        this(command, System.in);
+    }
+
+    public Commands(String command, InputStream inputStream){
         this.command = command;
+        this.scanner = createScanner(inputStream);
         Quit = false;
 //        this.sizeOfArray = arraysiz;
 //        this.bipbop = new Robot(arraysiz);
     }
-
+      private Scanner createScanner(InputStream inputStream){
+        return new Scanner(inputStream);
+      }
     public String getCommand() {
         return command;
     }
@@ -140,7 +149,8 @@ public class Commands {
                     Scanner userCommandtwo = new Scanner(System.in);  // Create a Scanner object
                     System.out.println("Enter array size");
 
-                    String myarrsize = userCommandtwo.nextLine();  // Read user input
+                    String myarrsize = userCommandtwo.nextLine();
+                    // Read user input
                     System.out.println("arraysize is: " + myarrsize);  // Output user input
 
                     this.sizeOfArray = Integer.parseInt(myarrsize);
@@ -382,6 +392,7 @@ public class Commands {
             bipbop.RobotUpdatePosition(row, robotposition[1]);
         }
     }
+
     public void MoveForwardUP(int stepsize) {
         int[] robotposition = bipbop.RobotPosition();
         int rowLimit = robotposition[0] - stepsize;
@@ -410,10 +421,10 @@ public class Commands {
         }
     }
     private void GetNewCommand(){
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+         // Create a Scanner object
         System.out.println("Enter Command");
 
-        String userCommand = myObj.nextLine();  // Read user input
+        String userCommand = scanner.nextLine();  // Read user input
         System.out.println("userCommand is: " + userCommand);  // Output user input
 
         this.command = userCommand.toLowerCase();
