@@ -25,6 +25,8 @@ public class Commands {
     public int posX; //
     public int posY; // position of robot [x,y]
     public String command;
+    public String stepsize;
+    public String myarrsize;
     private String LeaveSymbol = "0";
 
     //Dummy initialization
@@ -84,7 +86,7 @@ public class Commands {
                     Scanner userCommandtwo = new Scanner(System.in);  // Create a Scanner object
                     System.out.println("Enter array size");
 
-                    String myarrsize = userCommandtwo.nextLine();  // Read user input
+                    myarrsize = userCommandtwo.nextLine();  // Read user input
                     System.out.println("arraysize is: " + myarrsize);  // Output user input
 
                     this.sizeOfArray = Integer.parseInt(myarrsize);
@@ -113,7 +115,7 @@ public class Commands {
                     Scanner userCommandthree = new Scanner(System.in);  // Create a Scanner object
                     System.out.println("Enter step size");
 
-                    String stepsize = userCommandthree.nextLine();  // Read user input
+                    stepsize = userCommandthree.nextLine();  // Read user input
                     System.out.println("step is: " + stepsize);  // Output user input
 
                     if (isTurnRight() == true && isTurnLeft() == false){
