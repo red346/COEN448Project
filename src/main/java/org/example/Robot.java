@@ -7,9 +7,13 @@ public class Robot {
 
     int posy;
     int posx;
+
+    int[] RobotPreviousPostiton = new int[2];
     public Robot(int arraysize){
         this.posy = 0;
         this.posx = arraysize-1;
+        RobotPreviousPostiton[0] = posx;
+        RobotPreviousPostiton[1] = posy;
     }
 
     public int[] RobotPosition(){
@@ -20,7 +24,12 @@ public class Robot {
     }
 
     public void RobotUpdatePosition(int x, int y){
+        this.RobotPreviousPostiton = RobotPosition();
         this.posx = x;
         this.posy = y;
+    }
+
+    public int[] getRobotPreviousPosition(){
+        return RobotPreviousPostiton;
     }
 }

@@ -25,6 +25,7 @@ public class Commands {
     public int posX; //
     public int posY; // position of robot [x,y]
     public String command;
+    private String LeaveSymbol = "0";
 
     //Dummy initialization
     //public String[][] arrayString = new String[1][1];
@@ -115,16 +116,14 @@ public class Commands {
                     String stepsize = userCommandthree.nextLine();  // Read user input
                     System.out.println("step is: " + stepsize);  // Output user input
 
-                    if(isPenDown()){
-                        if (isTurnRight() == true && isTurnLeft() == false){
-                            MovetoRight(Integer.parseInt(stepsize));
-                        }
-                        else if (isTurnRight() == false && isTurnLeft() == true) {
-                            MovetoLeft(Integer.parseInt(stepsize));
-                        }
-                        else if (isTurnRight() == false && isTurnLeft() == false) {
-                            MoveForward(Integer.parseInt(stepsize));
-                        }
+                    if (isTurnRight() == true && isTurnLeft() == false){
+                        MovetoRight(Integer.parseInt(stepsize));
+                    }
+                    else if (isTurnRight() == false && isTurnLeft() == true) {
+                        MovetoLeft(Integer.parseInt(stepsize));
+                    }
+                    else if (isTurnRight() == false && isTurnLeft() == false) {
+                        MoveForward(Integer.parseInt(stepsize));
                     }
                     //else if pen up the robot will automatically fly to the designated position without leaving any trail
                     break;
@@ -224,6 +223,11 @@ public class Commands {
 
     public void PrintArray(){
         int[] robotposition = bipbop.RobotPosition();
+        int[] robotpreviousposition = bipbop.getRobotPreviousPosition();
+        x.get(robotpreviousposition[0]).set(robotpreviousposition[1],LeaveSymbol);
+
+        if(isPenUp())   LeaveSymbol = "0";
+
         x.get(robotposition[0]).set(robotposition[1], "*");
 
         for(int i=0; i<x.size(); i++){
@@ -239,10 +243,16 @@ public class Commands {
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
-            for(int col=robotposition[1]; col<stepsize; col++){
+        x.get(robotposition[0]).set(robotposition[1],"_");
+        int col=0;
+        for(col=robotposition[1]; col<stepsize; col++){
+            if(isPenDown()) {
                 x.get(robotposition[0]).set(col, "-");
-                bipbop.RobotUpdatePosition(robotposition[0],col);
             }
+        }
+        bipbop.RobotUpdatePosition(robotposition[0],col);
+
+        if(isPenDown()) LeaveSymbol = "-";
     }
 
     public void MovetoLeft(int stepsize){
@@ -250,20 +260,32 @@ public class Commands {
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         //another case when stepsize is 1 the robot stays in place, because of the for loop format
         int[] robotposition = bipbop.RobotPosition();
-        for(int col=robotposition[1]; col>robotposition[1]-stepsize; col--){
-            x.get(robotposition[0]).set(col, "-");
-            bipbop.RobotUpdatePosition(robotposition[0],col);
+        x.get(robotposition[0]).set(robotposition[1],"_");
+        int col=0;
+        for(col=robotposition[1]; col>robotposition[1]-stepsize; col--){
+            if(isPenDown()) {
+                x.get(robotposition[0]).set(col, "-");
+            }
         }
+        bipbop.RobotUpdatePosition(robotposition[0],col);
+
+        if(isPenDown()) LeaveSymbol = "-";
     }
 
     public void MoveForward(int stepsize){
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
-        for(int row=robotposition[0]; row>robotposition[0]-stepsize; row--){
-            x.get(row).set(robotposition[1],"|");
-            bipbop.RobotUpdatePosition(row,robotposition[1]);
+        x.get(robotposition[0]).set(robotposition[1],"|");
+        int row=0;
+        for(row=robotposition[0]; row>robotposition[0]-stepsize; row--){
+            if(isPenDown()) {
+                x.get(row).set(robotposition[1], "|");
+            }
         }
+        bipbop.RobotUpdatePosition(row,robotposition[1]);
+
+        if(isPenDown()) LeaveSymbol = "|";
     }
 
     private void GetNewCommand(){
