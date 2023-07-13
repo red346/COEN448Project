@@ -319,7 +319,7 @@ public class Commands {
         int maxColIndex = sizeOfArray - 1;
         for (int col = robotposition[1]; col < colLimit; col++) {
             if (col > maxColIndex) {
-                System.out.println("Warning: Robot has gone out of bounds!");
+                System.out.println("Robot has gone out of bounds!");
                 break;
             }
             x.get(robotposition[0]).set(col, "-");
