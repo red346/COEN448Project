@@ -29,14 +29,17 @@ public class Commands {
     public String command;
     public String PenDirection = "North";
 
+    private final Scanner scanner;
+
     //Dummy initialization
     //public String[][] arrayString = new String[1][1];
     ArrayList<ArrayList<String> > x = new ArrayList<ArrayList<String> >();
     Robot bipbop ;
 
-    public Commands(String command){
+    public Commands(String command, Scanner s){
         this.command = command;
         Quit = false;
+        this.scanner=s;
 //        this.sizeOfArray = arraysiz;
 //        this.bipbop = new Robot(arraysiz);
     }
@@ -137,10 +140,10 @@ public class Commands {
                     break;
 
                 case "i":
-                    Scanner userCommandtwo = new Scanner(System.in);  // Create a Scanner object
+                   // Scanner userCommandtwo = new Scanner(System.in);  // Create a Scanner object
                     System.out.println("Enter array size");
 
-                    String myarrsize = userCommandtwo.nextLine();  // Read user input
+                    String myarrsize = scanner.nextLine();  // Read user input
                     System.out.println("arraysize is: " + myarrsize);  // Output user input
 
                     this.sizeOfArray = Integer.parseInt(myarrsize);
@@ -174,10 +177,10 @@ public class Commands {
                     break;
 
                 case "m":
-                    Scanner userCommandthree = new Scanner(System.in);  // Create a Scanner object
+                    //Scanner userCommandthree = new Scanner(System.in);  // Create a Scanner object
                     System.out.println("Enter step size");
 
-                    String stepsize = userCommandthree.nextLine();  // Read user input
+                    String stepsize = scanner.nextLine();  // Read user input
                     System.out.println("step is: " + stepsize);  // Output user input
 
                     if(isPenDown()){
@@ -385,10 +388,10 @@ public class Commands {
         }
     }
     private void GetNewCommand(){
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        //Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter Command");
 
-        String userCommand = myObj.nextLine();  // Read user input
+        String userCommand = scanner.nextLine();  // Read user input
         System.out.println("userCommand is: " + userCommand);  // Output user input
 
         this.command = userCommand.toLowerCase();
