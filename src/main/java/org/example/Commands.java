@@ -31,7 +31,7 @@ public class Commands {
 
     //Dummy initialization
     //public String[][] arrayString = new String[1][1];
-    ArrayList<ArrayList<String> > x = new ArrayList<ArrayList<String> >();
+    public ArrayList<ArrayList<String> > x = new ArrayList<ArrayList<String> >();
     Robot bipbop ;
 
     public Commands(String command){
