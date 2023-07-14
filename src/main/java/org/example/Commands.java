@@ -21,7 +21,7 @@ public class Commands {
     public boolean penUp = true;
     public boolean turnEast = false;
     public boolean turnWest = false;
-    public boolean turnNorth = false;
+    public boolean turnNorth = true;
     public boolean turnSouth = false;
     //public boolean turnRight = false;
     //public boolean turnLeft = false;

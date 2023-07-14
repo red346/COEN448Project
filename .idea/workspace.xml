@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cafbe68-1212-46ce-a24b-853105ca8f88" name="Changes" comment="Miantest not working, tried a different way of testing in commandstest which is working so far.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2023_4_36_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2023_4_36_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/commandsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/commandsTest.java" afterDir="false" />
@@ -62,7 +60,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="JUnit.commandsTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="COEN448Project" />
@@ -96,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.commandsTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.commandsTest" />
         <item itemvalue="JUnit.MainTest" />
       </list>
     </recent_temporary>
@@ -118,7 +116,7 @@
       <workItem from="1689200720493" duration="209000" />
       <workItem from="1689200947868" duration="37000" />
       <workItem from="1689201004331" duration="11601000" />
-      <workItem from="1689348082398" duration="11131000" />
+      <workItem from="1689348082398" duration="11951000" />
     </task>
     <task id="LOCAL-00002" summary="Created a java file called Commands has getters and setters, also started writing the different commands the user can put.">
       <created>1689037931234</created>
@@ -176,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689284544061</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Miantest not working, tried a different way of testing in commandstest which is working so far.">
+      <created>1689361298478</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1689361298478</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +223,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Commands.java</url>
-          <line>96</line>
+          <line>104</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

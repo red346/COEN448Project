@@ -47,7 +47,7 @@ public class commandsTest {
 
 
     @Test
-    public void testRobotPositionGoingRight()
+    public void testRobotPositionEast()
     {
         Commands testCommand=new Commands("i");
         testCommand.InitializeArray(8);
