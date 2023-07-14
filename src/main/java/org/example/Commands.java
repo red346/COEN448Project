@@ -338,7 +338,7 @@ public class Commands {
         int[] robotposition = bipbop.RobotPosition();
         x.get(robotposition[0]).set(robotposition[1],"_");
         int col=0;
-        for(col=robotposition[1]; col<stepsize; col++){
+        for(col=robotposition[1]; col<robotposition[1]+stepsize; col++){
             if(isPenDown()) {
                 x.get(robotposition[0]).set(col, "-");
             }
@@ -354,7 +354,7 @@ public class Commands {
         //another case when stepsize is 1 the robot stays in place, because of the for loop format
         int[] robotposition = bipbop.RobotPosition();
         x.get(robotposition[0]).set(robotposition[1],"_");
-        int col=0;
+        int col=posY;
         for(col=robotposition[1]; col>robotposition[1]-stepsize; col--){
             if(isPenDown()) {
                 x.get(robotposition[0]).set(col, "-");
@@ -386,8 +386,8 @@ public class Commands {
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
         x.get(robotposition[0]).set(robotposition[1],"|");
-        int row=0;
-        for(row=robotposition[0]; row>robotposition[0]-stepsize; row--){
+        int row=posX;
+        for(row=robotposition[0]; row<stepsize; row++){
             if(isPenDown()) {
                 x.get(row).set(robotposition[1], "|");
             }
