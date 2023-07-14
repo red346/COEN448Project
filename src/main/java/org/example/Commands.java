@@ -21,7 +21,7 @@ public class Commands {
     public boolean penUp = true;
     public boolean turnEast = false;
     public boolean turnWest = false;
-    public boolean turnNorth = false;
+    public boolean turnNorth = true;
     public boolean turnSouth = false;
     //public boolean turnRight = false;
     //public boolean turnLeft = false;
@@ -116,6 +116,7 @@ public class Commands {
                     //if (isTurnRight() == false && isTurnLeft() == true) PenDirection = "Left";
                     //else if (isTurnRight() == true && isTurnLeft() == false) PenDirection = "Right";
                     System.out.println("Pen Direction: " + PenDirection);
+                    System.out.println("The robot's position: ("+bipbop.posx+","+bipbop.posy+")");
 
                     break;
 
