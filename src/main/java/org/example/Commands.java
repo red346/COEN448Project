@@ -40,6 +40,14 @@ public class Commands {
 //        this.bipbop = new Robot(arraysiz);
     }
 
+    public Robot getBipbop() {
+        return bipbop;
+    }
+
+    public void setBipbop(Robot bipbop) {
+        this.bipbop = bipbop;
+    }
+
     public String getCommand() {
         return command;
     }
@@ -99,6 +107,8 @@ public class Commands {
                     break;
 
                 case "c":
+
+                    System.out.println("The robot's position: "+bipbop.posx+","+bipbop.posy);
                     String Penstatus = "";
                     if (isPenDown() == false && isPenUp() == true) Penstatus = "Pen Up";
                     else if (isPenDown() == true && isPenUp() == false) Penstatus = "Pen Down";
