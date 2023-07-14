@@ -144,6 +144,7 @@ public class Commands {
 
                 case"q":
                     Quit = true;
+                    System.exit(0);
                     break;
 
                 default:
