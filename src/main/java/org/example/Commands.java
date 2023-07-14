@@ -116,7 +116,7 @@ public class Commands {
                     //if (isTurnRight() == false && isTurnLeft() == true) PenDirection = "Left";
                     //else if (isTurnRight() == true && isTurnLeft() == false) PenDirection = "Right";
                     System.out.println("Pen Direction: " + PenDirection);
-                    System.out.println("The robot's position: ("+bipbop.posx+","+bipbop.posy+")");
+                    System.out.println("The robot's position: ("+(sizeOfArray-bipbop.posx)+","+bipbop.posy+")");
 
                     break;
 
