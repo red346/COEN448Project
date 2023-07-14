@@ -7,7 +7,9 @@ public class Main{
         //int[][] robot = new int[Integer.parseInt(args[1])][Integer.parseInt(args[1])];
 
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("i:initialize, u:up, d:down, r:right, l:left, m s:move #space, p:print, c:current pos, q:quit  ");
+      
+        System.out.println("i:initialize, u:up, d:down, r:right, l:left, m s:move #space, p:print, c:current pos, q:quit ");
+      
         System.out.println("Enter Command");
 
 
