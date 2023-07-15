@@ -116,7 +116,7 @@ public class Commands {
 
                 case "c":
 
-                    System.out.println("The robot's position: "+bipbop.posx+","+bipbop.posy);
+                   // System.out.println("The robot's position: "+bipbop.posx+","+bipbop.posy);
                     String Penstatus = "";
                     if (isPenDown() == false && isPenUp() == true) Penstatus = "Pen Up";
                     else if (isPenDown() == true && isPenUp() == false) Penstatus = "Pen Down";
@@ -154,15 +154,16 @@ public class Commands {
 
                 case"q":
                     Quit = true;
+                    System.exit(0);
                     break;
 
                 default:
                     System.out.println("input invalid");
                     break;
             }
+
             GetNewCommand();
-            if(Quit)
-                break;
+
         }
     }
 
@@ -336,8 +337,18 @@ public class Commands {
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
+        int col = robotposition[1];
+        int limit = sizeOfArray - 1;
+        if (col + stepsize > limit) {
+            System.out.println("Robot is out of bounds");
+            col = limit;
+            stepsize = limit - robotposition[1];
+        } else {
+            col += stepsize;
+        }
+
         x.get(robotposition[0]).set(robotposition[1],"*");
-        int col=0;
+        col=0;
         for(col=robotposition[1]; col<robotposition[1]+stepsize; col++){
             if(isPenDown()) {
                 x.get(robotposition[0]).set(col, "*");
@@ -353,8 +364,18 @@ public class Commands {
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         //another case when stepsize is 1 the robot stays in place, because of the for loop format
         int[] robotposition = bipbop.RobotPosition();
+        int col = robotposition[1];
+        int limit = 0;
+        if (col - stepsize < limit) {
+            System.out.println("Robot is out of bounds");
+            col = limit;
+            stepsize = robotposition[1];
+        } else {
+            col -= stepsize;
+        }
+
         x.get(robotposition[0]).set(robotposition[1],"*");
-        int col=posY;
+        col=posY;
         for(col=robotposition[1]; col>robotposition[1]-stepsize; col--){
             if(isPenDown()) {
                 x.get(robotposition[0]).set(col, "*");
@@ -369,8 +390,20 @@ public class Commands {
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
+        int row = robotposition[0];
+        int limit = 0;
+
+        // Check if moving forward will exceed the array bounds
+        if (row - stepsize < limit) {
+            System.out.println("Robot is out of bounds");
+            row = limit;
+            stepsize = robotposition[0];
+        } else {
+            row -= stepsize;
+        }
+
         x.get(robotposition[0]).set(robotposition[1],"*");
-        int row=0;
+        row=0;
         for(row=robotposition[0]; row>robotposition[0]-stepsize; row--){
             if(isPenDown()) {
                 x.get(row).set(robotposition[1], "*");

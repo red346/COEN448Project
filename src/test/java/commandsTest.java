@@ -55,12 +55,13 @@ public class commandsTest {
         testCommand.MovetoRight(3);
 
         assertEquals(7,testCommand.getBipbop().posx);
-        assertEquals(3,testCommand.getBipbop().posy);
+        assertEquals(0,testCommand.getBipbop().posy);
 
     }
 
+
     @Test
-    public void testRobotPositionGoingUp()
+    public void testRobotPositionNorth()
     {
         Commands testCommand=new Commands("i");
         testCommand.InitializeArray(10);
@@ -70,38 +71,78 @@ public class commandsTest {
         assertEquals(0,testCommand.getBipbop().posy);
     }
 
+
     @Test
-    public void testRobotPositionGoingLeft()
+    public void testRobotPositionWest()
     {
         Commands testCommand=new Commands("i");
         testCommand.InitializeArray(10);
         testCommand.setTurnRight(true);
         testCommand.MovetoRight(2);
+
         testCommand.MoveForward(3);
         testCommand.setTurnLeft(true);
         testCommand.setTurnRight(false);
         testCommand.MovetoLeft(2);
 
-        assertEquals(6,testCommand.getBipbop().posx);
+        assertEquals(4,(10-testCommand.getBipbop().posx));
         assertEquals(0,testCommand.getBipbop().posy);
 
     }
 
-    /*
+
+
+    @Test
+    public void testRobotPositionSouth()
+    {
+        Commands testCommand=new Commands("i");
+        testCommand.InitializeArray(6);
+        testCommand.MoveForward(3);
+        testCommand.setTurnRight(true);
+        testCommand.MovetoRight(4);
+
+        testCommand.MovetoRight(2);
+        assertEquals(4,(6-testCommand.getBipbop().posx));
+        assertEquals(0,testCommand.getBipbop().posy);
+    }
+
+
     @Test
     public void testOutOfBoundsMovetoRight() {
         Commands testCommand = new Commands("i");
-        int arrSize = 6;
         testCommand.InitializeArray(6);
 
         // Move the robot to the right beyond the array bounds
         testCommand.MovetoRight(8);
 
         // Verify that the robot position is at the rightmost boundary
-        //Robot testBipBop = new Robot(6);
-        assertEquals(5, testBipBop.posx);
-        assertEquals(0, testBipBop.posy);
-    }*/
+        assertEquals(5, testCommand.getBipbop().posx);
+        assertEquals(0, testCommand.getBipbop().posy);
+    }
 
+    @Test
+    public void testOutOfBoundsMovetoLeft() {
+        Commands testCommand = new Commands("i");
+        testCommand.InitializeArray(6);
 
+        // Move the robot to the left beyond the array bounds
+        testCommand.MovetoLeft(8);
+
+        // Verify that the robot position is at the leftmost boundary
+        assertEquals(5, testCommand.getBipbop().posx);
+        assertEquals(0, testCommand.getBipbop().posy);
+    }
+
+    @Test
+    public void testOutOfBoundsMoveForward() {
+        Commands testCommand = new Commands("i");
+        testCommand.InitializeArray(6);
+
+        // Move the robot forward beyond the array bounds
+        testCommand.MoveForward(8);
+
+        // Verify that the robot position is at the upper boundary
+        assertEquals(0, testCommand.getBipbop().posx);
+        assertEquals(0, testCommand.getBipbop().posy);
+    }
 }

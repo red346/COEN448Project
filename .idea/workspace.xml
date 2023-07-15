@@ -33,6 +33,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -60,7 +68,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.commandsTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="COEN448Project" />
@@ -94,8 +102,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.commandsTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MainTest" />
       </list>
     </recent_temporary>
@@ -116,7 +124,7 @@
       <workItem from="1689200720493" duration="209000" />
       <workItem from="1689200947868" duration="37000" />
       <workItem from="1689201004331" duration="11601000" />
-      <workItem from="1689348082398" duration="11951000" />
+      <workItem from="1689348082398" duration="22793000" />
     </task>
     <task id="LOCAL-00002" summary="Created a java file called Commands has getters and setters, also started writing the different commands the user can put.">
       <created>1689037931234</created>
@@ -181,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689361298478</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Miantest not working, tried a different way of testing in commandstest which is working so far.">
+      <created>1689362229955</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1689362229955</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
