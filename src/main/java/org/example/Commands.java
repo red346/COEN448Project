@@ -46,6 +46,14 @@ public class Commands {
 //        this.bipbop = new Robot(arraysiz);
     }
 
+    public Robot getBipbop() {
+        return bipbop;
+    }
+
+    public void setBipbop(Robot bipbop) {
+        this.bipbop = bipbop;
+    }
+
     public String getCommand() {
         return command;
     }
@@ -69,22 +77,11 @@ public class Commands {
                     setPenUp(false);
                     break;
                 case "r":
-                    /*if(isTurnLeft()){
-                        setTurnLeft(false);
-                        setTurnRight(false);
-                    }
-                    else*/
                         setTurnRight(true);
                         setTurnLeft(false);
-
                     break;
 
                 case "l":
-                    /*if(isTurnRight()){
-                        setTurnLeft(false);
-                        setTurnRight(false);
-                    }
-                    else*/
                         setTurnLeft(true);
                         setTurnRight(false);
 
@@ -107,14 +104,13 @@ public class Commands {
                     break;
 
                 case "c":
+
+                   // System.out.println("The robot's position: "+bipbop.posx+","+bipbop.posy);
                     String Penstatus = "";
                     if (isPenDown() == false && isPenUp() == true) Penstatus = "Pen Up";
                     else if (isPenDown() == true && isPenUp() == false) Penstatus = "Pen Down";
                     System.out.println("Pen status: " + Penstatus);
 
-                    //String PenDirection = "";
-                    //if (isTurnRight() == false && isTurnLeft() == true) PenDirection = "Left";
-                    //else if (isTurnRight() == true && isTurnLeft() == false) PenDirection = "Right";
                     System.out.println("Pen Direction: " + PenDirection);
                     System.out.println("The robot's position: ("+(sizeOfArray-bipbop.posx)+","+bipbop.posy+")");
 
@@ -151,7 +147,9 @@ public class Commands {
                     System.out.println("input invalid");
                     break;
             }
+
             GetNewCommand();
+
         }
     }
 
@@ -276,22 +274,6 @@ public class Commands {
 
      public void InitializeArray(int sizeOfArray) {
 
-/*        String[][] temparray = new String[sizeOfArray][sizeOfArray];
-         for(int i=0; i<temparray.length; i++){
-             for(int j=0; j<temparray.length; j++){
-                 temparray[i][j] = "0";
-             }
-         }
-
-         for(int i=0; i<temparray.length; i++){
-             for(int j=0; j<temparray.length; j++){
-                 System.out.print(temparray[i][j] + " ");
-
-             }
-             System.out.println();
-         }
-         this.arrayString = temparray;*/
-
          for(int row=0; row<sizeOfArray; row++){
              x.add(new ArrayList<String>());
              for(int col=0; col<sizeOfArray; col++){
@@ -325,8 +307,18 @@ public class Commands {
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
+        int col = robotposition[1];
+        int limit = sizeOfArray - 1;
+        if (col + stepsize > limit) {
+            System.out.println("Robot is out of bounds");
+            col = limit;
+            stepsize = limit - robotposition[1];
+        } else {
+            col += stepsize;
+        }
+
         x.get(robotposition[0]).set(robotposition[1],"*");
-        int col=0;
+        col=0;
         for(col=robotposition[1]; col<robotposition[1]+stepsize; col++){
             if(isPenDown()) {
                 x.get(robotposition[0]).set(col, "*");
@@ -342,8 +334,18 @@ public class Commands {
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         //another case when stepsize is 1 the robot stays in place, because of the for loop format
         int[] robotposition = bipbop.RobotPosition();
+        int col = robotposition[1];
+        int limit = 0;
+        if (col - stepsize < limit) {
+            System.out.println("Robot is out of bounds");
+            col = limit;
+            stepsize = robotposition[1];
+        } else {
+            col -= stepsize;
+        }
+
         x.get(robotposition[0]).set(robotposition[1],"*");
-        int col=posY;
+        col=posY;
         for(col=robotposition[1]; col>robotposition[1]-stepsize; col--){
             if(isPenDown()) {
                 x.get(robotposition[0]).set(col, "*");
@@ -358,8 +360,20 @@ public class Commands {
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
+        int row = robotposition[0];
+        int limit = 0;
+
+        // Check if moving forward will exceed the array bounds
+        if (row - stepsize < limit) {
+            System.out.println("Robot is out of bounds");
+            row = limit;
+            stepsize = robotposition[0];
+        } else {
+            row -= stepsize;
+        }
+
         x.get(robotposition[0]).set(robotposition[1],"*");
-        int row=0;
+        row=0;
         for(row=robotposition[0]; row>robotposition[0]-stepsize; row--){
             if(isPenDown()) {
                 x.get(row).set(robotposition[1], "*");
@@ -393,7 +407,7 @@ public class Commands {
         String userCommand = myObj.nextLine();  // Read user input
         System.out.println("userCommand is: " + userCommand);  // Output user input
 
-        this.command = userCommand;
+        this.command = userCommand.toLowerCase();
     }
 
 }
