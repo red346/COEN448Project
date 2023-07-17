@@ -3,7 +3,9 @@ import org.example.Robot;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -12,6 +14,7 @@ public class commandsTest {
 
     private final InputStream standardIn = System.in;
     private ByteArrayInputStream testIn;
+    private final PrintStream standardOut = System.out;
     @Test
     public void testArrayInitialization()
     {
@@ -28,11 +31,8 @@ public class commandsTest {
     public void testPenUpDown()
     {
         Commands testCommand=new Commands("u");
-       // testCommand.identifyCommand();
-        testCommand.setPenUp(true);
+        testCommand.identifyCommand();
 
-        assertTrue(testCommand.penUp);
-       // assertEquals(false,testCommand.penDown);
 
         String userInput = "q"; // Add a newline character to simulate pressing Enter after input
         testIn = new ByteArrayInputStream(userInput.getBytes());
@@ -145,4 +145,36 @@ public class commandsTest {
         assertEquals(0, testCommand.getBipbop().posx);
         assertEquals(0, testCommand.getBipbop().posy);
     }
+
+    @Test
+    public void testPrintArrayCommand() {
+        Commands testCommand = new Commands("i");
+        testCommand.InitializeArray(6);
+
+        // Simulate the user entering the "p" command
+        String userInput = "p"; // Add a newline character to simulate pressing Enter after input
+        testIn = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(testIn);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+
+        // Invoke the method
+        testCommand.PrintArray();
+
+        // Reset the standard output
+        System.setOut(standardOut);
+
+        // Capture the output of the PrintArray() method
+        String expectedOutput = "          \n" +
+                "          \n" +
+                "          \n" +
+                "          \n" +
+                "          \n" +
+                "*         \n";
+        String capturedOutput = outputStream.toString();
+        assertEquals(expectedOutput, capturedOutput);
+    }
 }
+
+

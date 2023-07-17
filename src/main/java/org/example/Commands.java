@@ -77,22 +77,11 @@ public class Commands {
                     setPenUp(false);
                     break;
                 case "r":
-                    /*if(isTurnLeft()){
-                        setTurnLeft(false);
-                        setTurnRight(false);
-                    }
-                    else*/
                         setTurnRight(true);
                         setTurnLeft(false);
-
                     break;
 
                 case "l":
-                    /*if(isTurnRight()){
-                        setTurnLeft(false);
-                        setTurnRight(false);
-                    }
-                    else*/
                         setTurnLeft(true);
                         setTurnRight(false);
 
@@ -122,9 +111,6 @@ public class Commands {
                     else if (isPenDown() == true && isPenUp() == false) Penstatus = "Pen Down";
                     System.out.println("Pen status: " + Penstatus);
 
-                    //String PenDirection = "";
-                    //if (isTurnRight() == false && isTurnLeft() == true) PenDirection = "Left";
-                    //else if (isTurnRight() == true && isTurnLeft() == false) PenDirection = "Right";
                     System.out.println("Pen Direction: " + PenDirection);
                     System.out.println("The robot's position: ("+(sizeOfArray-bipbop.posx)+","+bipbop.posy+")");
 
@@ -287,22 +273,6 @@ public class Commands {
     }
 
      public void InitializeArray(int sizeOfArray) {
-
-/*        String[][] temparray = new String[sizeOfArray][sizeOfArray];
-         for(int i=0; i<temparray.length; i++){
-             for(int j=0; j<temparray.length; j++){
-                 temparray[i][j] = "0";
-             }
-         }
-
-         for(int i=0; i<temparray.length; i++){
-             for(int j=0; j<temparray.length; j++){
-                 System.out.print(temparray[i][j] + " ");
-
-             }
-             System.out.println();
-         }
-         this.arrayString = temparray;*/
 
          for(int row=0; row<sizeOfArray; row++){
              x.add(new ArrayList<String>());

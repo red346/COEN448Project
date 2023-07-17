@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cafbe68-1212-46ce-a24b-853105ca8f88" name="Changes" comment="Miantest not working, tried a different way of testing in commandstest which is working so far.">
+    <list default="true" id="7cafbe68-1212-46ce-a24b-853105ca8f88" name="Changes" comment="Added more tests in commandstest not sure if im getting the right values.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/commandsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/commandsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +125,8 @@
       <workItem from="1689200720493" duration="209000" />
       <workItem from="1689200947868" duration="37000" />
       <workItem from="1689201004331" duration="11601000" />
-      <workItem from="1689348082398" duration="22793000" />
+      <workItem from="1689348082398" duration="34461000" />
+      <workItem from="1689605870116" duration="919000" />
     </task>
     <task id="LOCAL-00002" summary="Created a java file called Commands has getters and setters, also started writing the different commands the user can put.">
       <created>1689037931234</created>
@@ -196,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689362229955</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added more tests in commandstest not sure if im getting the right values.">
+      <created>1689396700525</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1689396700525</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,14 +240,15 @@
     <MESSAGE value="CHanges to main" />
     <MESSAGE value="Changes in maintest, tests still not working" />
     <MESSAGE value="Miantest not working, tried a different way of testing in commandstest which is working so far." />
-    <option name="LAST_COMMIT_MESSAGE" value="Miantest not working, tried a different way of testing in commandstest which is working so far." />
+    <MESSAGE value="Added more tests in commandstest not sure if im getting the right values." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more tests in commandstest not sure if im getting the right values." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Commands.java</url>
-          <line>104</line>
+          <line>93</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
