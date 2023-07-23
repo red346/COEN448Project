@@ -1,5 +1,7 @@
 import org.example.Commands;
 import org.example.Robot;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -14,36 +16,67 @@ public class commandsTest {
 
     private final InputStream standardIn = System.in;
     private ByteArrayInputStream testIn;
+    private ByteArrayOutputStream testOut;
     private final PrintStream standardOut = System.out;
+
+    @BeforeEach
+    public void setUp() {
+        testOut = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(testOut));
+    }
+
+    @AfterEach
+    public void tearDown() {
+        System.setOut(standardOut);
+        System.setIn(standardIn);
+    }
     @Test
     public void testArrayInitialization()
     {
         Commands testCommand= new Commands("i");
         int arrSize=6;
         testCommand.InitializeArray(6);
-        //Robot testBipBop=new Robot(6);
         assertEquals(5, testCommand.getBipbop().posx);
         assertEquals(0,testCommand.getBipbop().posy);
     }
 
-/*
     @Test
-    public void testPenUpDown()
+    public void testGetNewCommand()
     {
-        Commands testCommand=new Commands("u");
-        testCommand.identifyCommand();
+        Commands testCommand=new Commands("i");
+
+        String input = "U\n";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        testCommand.GetNewCommand();
+
+        assertEquals("u", testCommand.getCommand());
+
+    }
+
+    @Test
+    public void testSetPenUp() {
+        Commands testCommand=new Commands("i");
+        testCommand.setPenUp(true);
+        assertEquals(true, testCommand.isPenUp());
+
+        testCommand.setPenUp(false);
+        assertEquals(false, testCommand.isPenUp());
+    }
+
+    @Test
+    public void testSetPenDown() {
+
+        Commands testCommand=new Commands("i");
+        testCommand.setPenDown(true);
+        assertEquals(true, testCommand.isPenDown());
 
 
-        String userInput = "q"; // Add a newline character to simulate pressing Enter after input
-        testIn = new ByteArrayInputStream(userInput.getBytes());
-        System.setIn(testIn);
+        testCommand.setPenDown(false);
+        assertEquals(false, testCommand.isPenDown());
+    }
 
-        Commands testCommand2=new Commands("d");
-        testCommand2.identifyCommand();
-
-        assertTrue(testCommand2.penDown);
-        assertEquals(false,testCommand2.penUp);
-    }*/
 
 
     @Test

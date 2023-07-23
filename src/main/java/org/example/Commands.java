@@ -112,7 +112,7 @@ public class Commands {
                     System.out.println("Pen status: " + Penstatus);
 
                     System.out.println("Pen Direction: " + PenDirection);
-                    System.out.println("The robot's position: ("+(sizeOfArray-bipbop.posx)+","+bipbop.posy+")");
+                    System.out.println("The robot's position: ("+(sizeOfArray-bipbop.posx)+","+bipbop.posy +")");
 
                     break;
 
@@ -388,6 +388,16 @@ public class Commands {
 
         //to make sure that the robot can walk in this direction, we need to compare the robot's current position to the stepsize and if the diff is between 0 -> arraysize then it's good to go
         int[] robotposition = bipbop.RobotPosition();
+        int col = robotposition[1];
+        int limit = sizeOfArray - 1;
+        if (col + stepsize > limit) {
+            System.out.println("Robot is out of bounds");
+            col = limit;
+            stepsize = limit - robotposition[1];
+        } else {
+            col += stepsize;
+        }
+
         x.get(robotposition[0]).set(robotposition[1],"*");
         int row=0;
         for(row=robotposition[0]; row<robotposition[0]+stepsize; row++){
@@ -400,7 +410,7 @@ public class Commands {
         if(isPenDown()) LeaveSymbol = "*";
     }
 
-    private void GetNewCommand(){
+    public void GetNewCommand(){
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter Command");
 
