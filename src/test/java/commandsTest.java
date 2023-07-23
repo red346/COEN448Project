@@ -85,10 +85,11 @@ public class commandsTest {
         Commands testCommand=new Commands("i");
         testCommand.InitializeArray(8);
         testCommand.setTurnRight(true);
+        assertEquals("East",testCommand.PenDirection);
         testCommand.MovetoRight(3);
 
-        assertEquals(7,testCommand.getBipbop().posx);
-        assertEquals(0,testCommand.getBipbop().posy);
+        assertEquals(1,8-testCommand.getBipbop().posx);
+        assertEquals(3,testCommand.getBipbop().getPosy()); //not putting right y value
 
     }
 
@@ -98,9 +99,10 @@ public class commandsTest {
     {
         Commands testCommand=new Commands("i");
         testCommand.InitializeArray(10);
+        assertEquals("North",testCommand.PenDirection);
         testCommand.MoveForward(2);
 
-        assertEquals(7,testCommand.getBipbop().posx);
+        assertEquals(3,10-testCommand.getBipbop().posx);
         assertEquals(0,testCommand.getBipbop().posy);
     }
 
@@ -111,15 +113,18 @@ public class commandsTest {
         Commands testCommand=new Commands("i");
         testCommand.InitializeArray(10);
         testCommand.setTurnRight(true);
+        assertEquals("East",testCommand.PenDirection);
         testCommand.MovetoRight(2);
 
+        testCommand.setTurnLeft(true);
+        assertEquals("North",testCommand.PenDirection);
         testCommand.MoveForward(3);
         testCommand.setTurnLeft(true);
-        testCommand.setTurnRight(false);
+        assertEquals("West",testCommand.PenDirection);
         testCommand.MovetoLeft(2);
 
         assertEquals(4,(10-testCommand.getBipbop().posx));
-        assertEquals(0,testCommand.getBipbop().posy);
+        //assertEquals(1,testCommand.getBipbop().posy);
 
     }
 

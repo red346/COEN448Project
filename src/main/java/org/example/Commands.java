@@ -38,7 +38,7 @@ public class Commands {
     //Dummy initialization
     //public String[][] arrayString = new String[1][1];
     ArrayList<ArrayList<String> > x = new ArrayList<ArrayList<String> >();
-    Robot bipbop ;
+    public Robot bipbop ;
 
     public Commands(String command){
         this.command = command;
@@ -324,6 +324,8 @@ public class Commands {
                 x.get(robotposition[0]).set(col, "*");
             }
         }
+
+        System.out.println("The new y value is: "+col);
         bipbop.RobotUpdatePosition(robotposition[0],col);
 
         if(isPenDown()) LeaveSymbol = "*";

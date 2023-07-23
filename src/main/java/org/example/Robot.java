@@ -3,7 +3,7 @@ package org.example;
 public class Robot {
 
     //The class robot will be used to only identify the position of the robot
-    //I still don't know how will it be implemented
+
 
     public int posy;
     public int posx;
@@ -27,6 +27,10 @@ public class Robot {
         this.RobotPreviousPostiton = RobotPosition();
         this.posx = x;
         this.posy = y;
+    }
+
+    public int getPosy() {
+        return posy;
     }
 
     public int[] getRobotPreviousPosition(){
