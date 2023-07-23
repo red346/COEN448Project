@@ -55,6 +55,19 @@ public class commandsTest {
 
     }
 
+    /*
+    @Test
+    public void testQuitCommand() {
+        Commands testCommand = new Commands("q");
+
+        String userInput = "q";
+        testIn = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(testIn);
+
+        testCommand.identifyCommand();
+
+    }*/
+
     @Test
     public void testSetPenUp() {
         Commands testCommand=new Commands("i");
@@ -183,6 +196,51 @@ public class commandsTest {
         assertEquals(0, testCommand.getBipbop().posx);
         assertEquals(0, testCommand.getBipbop().posy);
     }
+
+    @Test
+    public void testOutOfBoundsMoveBackwards() {
+        Commands testCommand = new Commands("i");
+        testCommand.InitializeArray(6);
+
+        // Turn the robot south
+        testCommand.setTurnRight(true);
+        testCommand.setTurnRight(true);
+
+        // Move the robot backward beyond the array bounds
+        testCommand.MoveBackwards(8);
+
+        // Verify that the robot position is at the lower boundary
+        assertEquals(5, testCommand.getBipbop().posx);
+        assertEquals(0, testCommand.getBipbop().posy);
+    }
+
+
+    @Test
+    public void testTurnRightAndLeft() {
+        Commands testCommand = new Commands("i");
+        testCommand.InitializeArray(6);
+
+        // Initially, the robot is facing North
+        assertEquals("North", testCommand.PenDirection);
+
+        // Turn the robot right
+        testCommand.setTurnRight(true);
+        assertEquals("East", testCommand.PenDirection);
+
+        // Turn the robot left
+        testCommand.setTurnLeft(true);
+        assertEquals("North", testCommand.PenDirection);
+
+        // Turn the robot left again
+        testCommand.setTurnLeft(true);
+        assertEquals("West", testCommand.PenDirection);
+
+        // Turn the robot right
+        testCommand.setTurnRight(true);
+        assertEquals("North", testCommand.PenDirection);
+    }
+
+
 
     @Test
     public void testPrintArrayCommand() {
