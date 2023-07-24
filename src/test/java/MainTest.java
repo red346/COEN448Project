@@ -1,4 +1,3 @@
-/*
 import org.example.Commands;
 import org.example.Main;
 import org.junit.jupiter.api.AfterEach;
@@ -19,6 +18,7 @@ public class MainTest {
     private ByteArrayInputStream testIn;
     private ByteArrayInputStream testIn2;
     private ByteArrayOutputStream testOut;
+    private ByteArrayOutputStream testOut2;
 
     @BeforeEach
     public void setUp() {
@@ -32,21 +32,30 @@ public class MainTest {
         System.setIn(standardIn);
     }
 
-    @Test
-    public void testFirstCommandCorrect() {
+   @Test
+  public void testFirstCommandCorrect() {
         String userInput = "i\n"; // Add a newline character to simulate pressing Enter after input
         testIn = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(testIn);
 
+
+        //new Main();
         Main.main(new String[]{});
 
         String consoleOutput = testOut.toString().trim();
         assertTrue(consoleOutput.contains("user command lowercase is: i"),
                 "Expected output to contain 'user command lowercase is: i'");
 
-        String userInput2="7";
-        testIn2=new ByteArrayInputStream(userInput2.getBytes());
-        System.setIn(testIn2);
+        // consoleOutput=testOut.toString().trim();
+        // assertTrue(consoleOutput.contains("Enter array size"),"Expected output to contain 'Enter array size'");
+
+        String userInput2="7\n";
+        testIn=new ByteArrayInputStream(userInput2.getBytes());
+        System.setIn(testIn);
+
+        consoleOutput=testOut.toString().trim();
+        assertTrue(consoleOutput.contains("arraysize is: 7"),"Expected output to contain 'arraysize: 7'");
+
     }
 
     @Test
@@ -55,13 +64,21 @@ public class MainTest {
         testIn = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(testIn);
 
+
+        new Main();
         Main.main(new String[]{});
+
+        String userInput2="7";
+        testIn2=new ByteArrayInputStream(userInput2.getBytes());
+        System.setIn(testIn2);
 
         String consoleOutput = testOut.toString().trim();
         assertTrue(consoleOutput.contains("First command should be i, try again."),
                 "Expected output to contain 'First command should be i, try again.'");
         assertTrue(consoleOutput.contains("user command lowercase is: i"),
                 "Expected output to contain 'user command lowercase is: i'");
+
     }
 }
- */
+
+

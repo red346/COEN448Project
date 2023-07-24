@@ -18,7 +18,8 @@ public class Main {
             if (userCommand.equalsIgnoreCase("i")) {
                 System.out.println("userCommand is: " + userCommand);  // Output user input
 
-                Commands command = new Commands(userCommand.toLowerCase());
+                Commands command = new Commands(
+                        "i");
 
                 System.out.println("user command lowercase is: " + userCommand.toLowerCase());
 
@@ -31,3 +32,4 @@ public class Main {
         }
     }
 }
+
