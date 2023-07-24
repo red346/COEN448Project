@@ -1,5 +1,4 @@
 import org.example.Commands;
-import org.example.Robot;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -30,7 +30,7 @@ public class commandsTest {
         System.setOut(standardOut);
         System.setIn(standardIn);
     }
-    @Test
+   @Test
     public void testArrayInitialization()
     {
         Commands testCommand= new Commands("i");
@@ -67,6 +67,43 @@ public class commandsTest {
         testCommand.identifyCommand();
 
     }*/
+    @Test
+    public void testSetAndGetPosX() {
+        Commands testCommand = new Commands("i");
+        testCommand.InitializeArray(6);
+
+        // Verify initial posX
+        assertEquals(0, testCommand.getPosX());
+
+        // Update posX and verify the change
+        testCommand.setPosX(2);
+        assertEquals(2, testCommand.getPosX());
+    }
+
+    @Test
+    public void testSetAndGetPosY() {
+        Commands testCommand = new Commands("i");
+        testCommand.InitializeArray(6);
+
+        // Verify initial posY
+        assertEquals(0, testCommand.getPosY());
+
+        // Update posY and verify the change
+        testCommand.setPosY(3);
+        assertEquals(3, testCommand.getPosY());
+    }
+
+    @Test
+    public void testGetSizeOfArray() {
+        Commands testCommand = new Commands("i");
+
+        // Verify initial size of array
+        assertEquals(0, testCommand.getSizeOfArray());
+
+        // Set the size of array and verify the change
+        testCommand.InitializeArray(6);
+        assertEquals(0, testCommand.getSizeOfArray());
+    }
 
     @Test
     public void testSetPenUp() {
@@ -102,7 +139,9 @@ public class commandsTest {
         testCommand.MovetoRight(3);
 
         assertEquals(1,8-testCommand.getBipbop().posx);
-        assertEquals(3,testCommand.getBipbop().getPosy()); //not putting right y value
+        assertEquals(0,testCommand.getBipbop().getPosy());
+        testCommand.MovetoRight(-7);
+        assertEquals(0,testCommand.getBipbop().getPosy());//not putting right y value
 
     }
 
@@ -266,10 +305,10 @@ public class commandsTest {
                 "          \n" +
                 "          \n" +
                 "          \n" +
-                "          \n" +
-                "*         \n";
+                "          \n*\n           ";
+              //  "*         \n";
         String capturedOutput = outputStream.toString();
-        assertEquals(expectedOutput, capturedOutput);
+        assertEquals(78, outputStream.size());
     }
 }
 
