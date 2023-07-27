@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7cafbe68-1212-46ce-a24b-853105ca8f88" name="Changes" comment="Added more tests in commandsTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/commandsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/commandsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +13,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExportToHTMLSettings">
-    <option name="OUTPUT_DIRECTORY" value="C:\Users\kamar\OneDrive\Desktop\College shiz\Concordia\Summer 2023\COEN 448" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\kamar\IdeaProjects" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -72,13 +72,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/Desktop/College shiz/Concordia/Summer 2023/COEN 448" />
+    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/Desktop/College shiz/Concordia/Summer 2023/COEN 448/software-testing-robot-simulator-main" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="JUnit.All in COEN448Project">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="COEN448Project" />
@@ -94,7 +94,10 @@
     </configuration>
     <configuration name="All in COEN448Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COEN448Project" />
+      <extension name="coverage" sample_coverage="false" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -138,9 +141,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in COEN448Project" />
         <item itemvalue="JUnit.commandsTest" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MainTest" />
       </list>
     </recent_temporary>
@@ -163,7 +166,7 @@
       <workItem from="1689201004331" duration="11601000" />
       <workItem from="1689348082398" duration="34461000" />
       <workItem from="1689605870116" duration="1990000" />
-      <workItem from="1689697512854" duration="21336000" />
+      <workItem from="1689697512854" duration="27930000" />
     </task>
     <task id="LOCAL-00002" summary="Created a java file called Commands has getters and setters, also started writing the different commands the user can put.">
       <created>1689037931234</created>
@@ -263,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690080081260</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added more tests in commandsTest">
+      <created>1690127901493</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1690127901493</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,7 +324,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COEN448Project$All_in_COEN448Project.ic" NAME="All in COEN448Project Coverage Results" MODIFIED="1690127378491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/COEN448Project$All_in_COEN448Project.ic" NAME="All in COEN448Project Coverage Results" MODIFIED="1690128543894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/COEN448Project$commandsTest.exec" NAME="commandsTest Coverage Results" MODIFIED="1690050618988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
