@@ -41,7 +41,7 @@ public class Commands {
     public Robot bipbop;
 
     public Commands(String i) {
-        this.command = command;
+        this.command = i;
 //        this.sizeOfArray = arraysiz;
 //        this.bipbop = new Robot(arraysiz);
     }
