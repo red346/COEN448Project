@@ -7,7 +7,9 @@ public class Main {
     public static void main(String[] args) {
         boolean firstCommandCorrect = false;
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+      
         System.out.println("i:initialize, u:up, d:down, r:right, l:left, m s:move #space, p:print, c:current pos, q:quit ");
+      
         System.out.println("Enter Command");
 
         while (!firstCommandCorrect) {
@@ -16,8 +18,8 @@ public class Main {
             if (userCommand.equalsIgnoreCase("i")) {
                 System.out.println("userCommand is: " + userCommand);  // Output user input
 
-                Commands command = new Commands(userCommand.toLowerCase()
-                );
+                Commands command = new Commands(
+                        "i");
 
                 System.out.println("user command lowercase is: " + userCommand.toLowerCase());
 
@@ -30,3 +32,4 @@ public class Main {
         }
     }
 }
+
